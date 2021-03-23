@@ -17,6 +17,6 @@ jobs:
         uses: jina-ai/hub-builder@master
         with:
           push: true
-          dockerhub_username: ${{ secrets.JINAHUB_DOCKER_USER }}
-          dockerhub_password: ${{ secrets.JINAHUB_DOCKER_PWD }}
+          # dockerhub_username: ${{ secrets.JINAHUB_DOCKER_USER }}
+          # dockerhub_password: ${{ secrets.JINAHUB_DOCKER_PWD }}
           
