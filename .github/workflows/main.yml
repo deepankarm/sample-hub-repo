@@ -1,0 +1,22 @@
+name: CD
+
+on:
+  pull_request:
+    branches:
+      - master
+    types: [ closed ]
+
+jobs:
+  hub-build-push:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Jina Hub Image Builder
+        uses: jina-ai/hub-builder@master
+        with:
+          push: true
+          dockerhub_username: ${{ secrets.JINAHUB_DOCKER_USER }}
+          dockerhub_password: ${{ secrets.JINAHUB_DOCKER_PWD }}
+          
